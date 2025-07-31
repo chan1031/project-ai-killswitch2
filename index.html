@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>President Bronson Announces 15% Tariff on Southovia Imports Alongside $350 Billion Trade Deal</title>
+    <title>CBC NEWS</title>
     <style>
         * {
             margin: 0;
@@ -12,30 +12,25 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        /* Header */
         .header {
-            background-color: #1e40af;
-            color: white;
-            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .header-content {
-            max-width: 1200px;
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,437 +38,452 @@
 
         .logo {
             font-size: 2rem;
-            font-weight: bold;
+            font-weight: 800;
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .nav {
+        .nav-menu {
             display: flex;
             gap: 2rem;
+            list-style: none;
         }
 
-        .nav a {
-            color: white;
+        .nav-link {
+            color: #ffffff;
             text-decoration: none;
-            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .nav a:hover {
-            color: #93c5fd;
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
-        /* Article */
-        .article-container {
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
         }
 
-        .category {
-            background-color: #dc2626;
+        .article-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
             color: white;
             padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: inline-block;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .article-title {
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.2;
-            color: #1f2937;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .article-subtitle {
             font-size: 1.2rem;
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
         .article-meta {
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
             gap: 1rem;
         }
 
-        .meta-left {
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .meta-item {
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-
-        .reporter {
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            color: #1e40af;
+            color: white;
         }
 
-        .share-buttons {
+        .author-details .name {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .author-details .date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .social-share {
             display: flex;
-            gap: 0.5rem;
+            gap: 1rem;
         }
 
         .share-btn {
-            padding: 0.5rem;
-            background-color: #f3f4f6;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             border: none;
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
         }
 
         .share-btn:hover {
-            background-color: #e5e7eb;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
         }
 
         .article-image {
             width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 300px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             margin-bottom: 1rem;
-            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
-        }
-
-        .image-caption {
-            font-size: 0.9rem;
-            color: #6b7280;
-            font-style: italic;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
         .article-content {
             font-size: 1.1rem;
             line-height: 1.8;
-            margin-bottom: 3rem;
+            color: #e0e0e0;
         }
 
         .article-content p {
             margin-bottom: 1.5rem;
         }
 
-        .article-content h3 {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin: 2rem 0 1rem 0;
-            color: #1f2937;
-        }
-
-        .highlight {
-            background-color: #fef3c7;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-        }
-
-        /* Comments Section */
-        .comments-section {
-            border-top: 3px solid #e5e7eb;
+        .sidebar {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
             padding: 2rem;
-            background-color: #f9fafb;
+            height: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .trending-item {
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .trending-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .trending-title {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .trending-meta {
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        .comments-section {
+            margin-top: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .comments-header {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: #1f2937;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #ffffff;
         }
 
         .comment-form {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .form-group {
             margin-bottom: 1rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #374151;
-        }
-
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 4px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
             font-size: 1rem;
         }
 
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #888;
         }
 
-        .submit-btn {
-            background-color: #1e40af;
+        .submit-comment {
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
             color: white;
-            padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 4px;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
+            transition: transform 0.3s ease;
         }
 
-        .submit-btn:hover {
-            background-color: #1d4ed8;
-        }
-
-        .comments-list {
-            margin-top: 2rem;
+        .submit-comment:hover {
+            transform: scale(1.05);
         }
 
         .comment {
-            background-color: white;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
             padding: 1.5rem;
-            border-radius: 8px;
             margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
+            border-left: 3px solid #00d4ff;
         }
 
         .comment-author {
-            font-weight: bold;
-            color: #1e40af;
-        }
-
-        .comment-date {
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-
-        .comment-content {
+            font-weight: 600;
+            color: #00d4ff;
             margin-bottom: 0.5rem;
+        }
+
+        .comment-text {
+            color: #e0e0e0;
             line-height: 1.6;
         }
 
-        .delete-btn {
-            background-color: #dc2626;
-            color: white;
-            border: none;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: background-color 0.3s;
-        }
-
-        .delete-btn:hover {
-            background-color: #b91c1c;
-        }
-
-        .no-comments {
-            text-align: center;
-            color: #6b7280;
-            font-style: italic;
-            padding: 2rem;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav {
-                gap: 1rem;
-            }
-
-            .article-container {
+            .main-container {
+                grid-template-columns: 1fr;
                 padding: 1rem;
             }
-
+            
             .article-title {
                 font-size: 2rem;
             }
-
-            .article-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .comments-section {
-                padding: 1rem;
+            
+            .nav-menu {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">ABC News</div>
-                <nav class="nav">
-                    <a href="#">Politics</a>
-                    <a href="#">Business</a>
-                    <a href="#">Society</a>
-                    <a href="#">Technology</a>
-                    <a href="#">Culture</a>
-                </nav>
-            </div>
-        </header>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">DarkNews</div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Tech</a></li>
+                <li><a href="#" class="nav-link">Politics</a></li>
+                <li><a href="#" class="nav-link">Business</a></li>
+                <li><a href="#" class="nav-link">Health</a></li>
+                <li><a href="#" class="nav-link">Science</a></li>
+            </ul>
+        </div>
+    </header>
 
-        <!-- Article -->
-        <main class="article-container">
-            <div class="category">POLITICS</div>
-            
-            <h1 class="article-title">President Bronson Announces 15% Tariff on Southovia Imports Alongside $350 Billion Trade Deal</h1>
-            
-            <p class="article-subtitle">
-                U.S. President Richard Bronson announced a comprehensive trade deal with Southovia, which includes a 15% tariff on Southovian imports—reduced from a previously planned 25%. In return, Southovia has pledged $350 billion in U.S. investments and agreed to purchase $100 billion worth of American energy products.
-            </p>
-
-            <div class="article-meta">
-                <div class="meta-left">
-                    <div class="meta-item">
-                        By <span class="reporter">John Smith</span>
-                    </div>
-                    <div class="meta-item">January 15, 2024, 2:30 PM</div>
-                    <div class="meta-item">1,523 views</div>
-                </div>
-                <div class="share-buttons">
-                    <button class="share-btn" title="Share on Facebook">📘</button>
-                    <button class="share-btn" title="Share on Twitter">🐦</button>
-                    <button class="share-btn" title="Share on WhatsApp">💬</button>
-                </div>
-            </div>
-
-            <div class="article-image">
-                <div>AI Technology Development Lab</div>
-            </div>
-            <p class="image-caption">▲ Developers working on cutting-edge AI models at a state-of-the-art research facility.</p>
-
-            <div class="article-content">
-                <p>
-                    On the 30th (local time), President Richard Bronson of the United States announced a comprehensive trade agreement with Southovia, which includes imposing a 15% tariff on imports from the country.
-
-President Bronson made the announcement through his social media platform, “LibertyVoice,” stating, “The United States has reached a Full and Complete Trade Deal with the Republic of Southovia.”
-
-According to the agreement, the U.S. will reduce the originally planned 25% tariff on Southovian imports to 15%. In return, Southovia has pledged to invest $350 billion into the U.S. economy and to purchase $100 billion worth of liquefied natural gas (LNG) and other energy products from the United States.
-
-However, specific details regarding the structure and timeline of the investment and import plans were not disclosed. President Bronson added, “Further investment announcements will be made in the near future.”
-
-He also noted that Southovia has agreed to expand market access for U.S.-made automobiles, trucks, and agricultural products and will not impose import duties on these goods.
-
-The government of Southovia has not yet issued an official statement in response. News agency WorldPress reported that the precise terms of the agreement have not been independently verified.
-
-Meanwhile, President Bronson congratulated President Lee Jae-kyun of Southovia on his recent election victory and stated that a summit will be held at the White House within two weeks, where the two leaders will jointly announce the details of the trade agreement.
-
-This trade pact is part of the Bronson administration’s broader strategy focused on “reciprocal tariff adjustment” and attracting large-scale foreign direct investment, signaling a major shift in future U.S.–Southovia trade relations.
+    <div class="main-container">
+        <main>
+            <article class="article-card">
+                <div class="category-tag">POLITICS</div>
+                <h1 class="article-title">Tariff Deal Eases Uncertainty, but Trade Imbalance and Massive Investment Pose Major Hurdles</h1>
+                <p class="article-subtitle">
+                    South Korean goods to face 15% tariffs, while American goods remain duty-free
+                    President Bronson’s call for “full market access” may spark future disputes
+                    $350 billion U.S. investment fund and LNG purchases seen as trade-off
                 </p>
-            </div>
+
+                <div class="article-meta">
+                    <div class="author-info">
+                        <div class="author-avatar">김</div>
+                        <div class="author-details">
+                            <div class="name">Reporter Kim Taehyun</div>
+                            <div class="date">March 15, 2024 • 3 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="social-share">
+                        <button class="share-btn">📘</button>
+                        <button class="share-btn">🐦</button>
+                        <button class="share-btn">📧</button>
+                    </div>
+                </div>
+
+                <div class="article-image">
+                    <div>International Trade Conference</div>
+                </div>
+
+                <div class="article-content">
+                    <p>
+                        South Korea and the United States have agreed to set reciprocal tariffs on South Korean exports to the U.S., including automobiles, at 15%. While South Korean exporters have expressed relief at avoiding the originally planned 25% tariffs, the agreement comes with a high price: South Korea will launch a $350 billion investment fund in the U.S. and commit to large-scale purchases of liquefied natural gas (LNG).
+
+                        The new trade framework has sparked concerns over structural inequality. Products from South Korea, which had previously benefited from duty-free access under the Free Trade Agreement (FTA), will now be subject to a 15% tariff. Meanwhile, American goods will continue to enter South Korea without tariffs—creating a trade imbalance that critics argue is unfair. Presidents Richard Bronson and Hong Gil-dong have also agreed to hold their first summit within two weeks to officially announce the deal.
+                        
+                        The South Korean negotiation team, led by Deputy Prime Minister and Finance Minister Koo Yoon-chul, concluded the deal with President Bronson at the White House on the afternoon of the 30th (local time), just two days before the new tariffs were scheduled to take effect. On the 31st, Kim Yong-bum, Chief Policy Secretary to the President, stated in a briefing, “The U.S. has agreed to lower the reciprocal tariff rate from 25% to 15%, including on key export items like automobiles.”
+                        
+                        South Korean goods have faced a base tariff of 10% since April, and this deal effectively increases the overall rate by 5 percentage points. However, the tariff on automobiles, which had been raised to 25% in May, will now be reduced by 10 percentage points—bringing some relief to the auto sector.
+                        
+                        Secretary Kim also noted that South Korea had secured relatively favorable treatment on potential tariffs for semiconductors and pharmaceuticals. “In consideration of food security and the sensitivity of our agricultural sector, we agreed not to further open the markets for rice and beef,” he added.
+                        
+                    </p>
+                </div>
+
+                <div class="comments-section">
+                    <h3 class="comments-header">Comments <span id="comment-count">0</span></h3>
+                    
+                    <div class="comment-form">
+                        <div class="form-group">
+                            <input type="text" id="commenter-name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="comment-text" rows="4" placeholder="Write your comment..."></textarea>
+                        </div>
+                        <button class="submit-comment" onclick="addComment()">Post Comment</button>
+                    </div>
+
+                    <div id="comments-list">
+                        <div style="text-align: center; color: #888; padding: 2rem;">
+                            Be the first to comment!
+                        </div>
+                    </div>
+                </div>
+            </article>
         </main>
 
-        <!-- Comments Section -->
-        <section class="comments-section">
-            <h2 class="comments-header">Comments <span id="comment-count">0</span></h2>
-            
-            <div class="comment-form">
-                <div class="form-group">
-                    <label for="author">Name</label>
-                    <input type="text" id="author" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label for="comment-text">Comment</label>
-                    <textarea id="comment-text" placeholder="Write your comment..."></textarea>
-                </div>
-                <button class="submit-btn" onclick="addComment()">Post Comment</button>
+        <aside class="sidebar">
+            <h3 class="sidebar-title">🔥 Trending News</h3>
+            <div class="trending-item">
+                <div class="trending-title">Meta Unveils Major VR Metaverse Platform Upgrade</div>
+                <div class="trending-meta">2 hours ago • 1,234 views</div>
             </div>
-
-            <div class="comments-list" id="comments-list">
-                <div class="no-comments" id="no-comments">
-                    No comments yet. Be the first to comment!
-                </div>
+            <div class="trending-item">
+                <div class="trending-title">Tesla Launches Full Self-Driving Beta Worldwide</div>
+                <div class="trending-meta">4 hours ago • 2,567 views</div>
             </div>
-        </section>
+            <div class="trending-item">
+                <div class="trending-title">Apple Reveals MacBook Pro with M4 Chip</div>
+                <div class="trending-meta">6 hours ago • 3,891 views</div>
+            </div>
+            <div class="trending-item">
+                <div class="trending-title">Google Announces Quantum Computer Commercialization</div>
+                <div class="trending-meta">8 hours ago • 1,678 views</div>
+            </div>
+        </aside>
     </div>
 
     <script>
         let comments = [];
-        let commentIdCounter = 1;
+        let commentId = 1;
 
         function addComment() {
-            const author = document.getElementById('author').value.trim();
-            const commentText = document.getElementById('comment-text').value.trim();
+            const name = document.getElementById('commenter-name').value.trim();
+            const text = document.getElementById('comment-text').value.trim();
 
-            if (!author || !commentText) {
+            if (!name || !text) {
                 alert('Please enter both name and comment.');
                 return;
             }
 
             const comment = {
-                id: commentIdCounter++,
-                author: author,
-                text: commentText,
-                date: new Date().toLocaleString('en-US')
+                id: commentId++,
+                name: name,
+                text: text,
+                date: new Date().toLocaleString('ko-KR')
             };
 
             comments.push(comment);
             renderComments();
             
-            // Clear input fields
-            document.getElementById('author').value = '';
+            document.getElementById('commenter-name').value = '';
             document.getElementById('comment-text').value = '';
         }
 
-        function deleteComment(commentId) {
+        function removeComment(id) {
             if (confirm('Are you sure you want to delete this comment?')) {
-                comments = comments.filter(comment => comment.id !== commentId);
+                comments = comments.filter(comment => comment.id !== id);
                 renderComments();
             }
         }
 
         function renderComments() {
             const commentsList = document.getElementById('comments-list');
-            const noCommentsMsg = document.getElementById('no-comments');
             const commentCount = document.getElementById('comment-count');
-
+            
             commentCount.textContent = comments.length;
 
             if (comments.length === 0) {
-                commentsList.innerHTML = '<div class="no-comments" id="no-comments">No comments yet. Be the first to comment!</div>';
+                commentsList.innerHTML = '<div style="text-align: center; color: #888; padding: 2rem;">Be the first to comment!</div>';
                 return;
             }
 
             const commentsHTML = comments.map(comment => `
                 <div class="comment">
-                    <div class="comment-header">
-                        <span class="comment-author">${escapeHtml(comment.author)}</span>
-                        <span class="comment-date">${comment.date}</span>
-                    </div>
-                    <div class="comment-content">${escapeHtml(comment.text)}</div>
-                    <button class="delete-btn" onclick="deleteComment(${comment.id})">Delete</button>
+                    <div class="comment-author">${escapeHtml(comment.name)} • ${comment.date}</div>
+                    <div class="comment-text">${escapeHtml(comment.text)}</div>
+                    <button onclick="removeComment(${comment.id})" style="margin-top: 0.5rem; background: #ff4757; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 5px; cursor: pointer; font-size: 0.8rem;">Delete</button>
                 </div>
             `).join('');
 
@@ -486,20 +496,17 @@ This trade pact is part of the Bronson administration’s broader strategy focus
             return div.innerHTML;
         }
 
-        // Submit comment with Ctrl+Enter
-        document.getElementById('comment-text').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && e.ctrlKey) {
-                addComment();
-            }
+        // Trending items click event
+        document.querySelectorAll('.trending-item').forEach(item => {
+            item.addEventListener('click', function() {
+                alert('Navigating to the article.');
+            });
         });
 
-        // Share button functionality
+        // Share button events
         document.querySelectorAll('.share-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                const title = encodeURIComponent(document.title);
-                const url = encodeURIComponent(window.location.href);
-                
-                alert('Share functionality can be implemented with actual social media APIs.');
+                alert('Share functionality coming soon.');
             });
         });
     </script>
