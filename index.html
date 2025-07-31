@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBC NEWS</title>
+    <title>Plus News</title>
     <style>
         * {
             margin: 0;
@@ -12,16 +12,16 @@
         }
 
         body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
             color: #ffffff;
             min-height: 100vh;
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(59, 130, 246, 0.1);
+            backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -30,16 +30,16 @@
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #3b82f6, #06b6d4, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -47,76 +47,77 @@
 
         .nav-menu {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-link {
-            color: #ffffff;
+            color: #e2e8f0;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            font-weight: 500;
         }
 
         .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(59, 130, 246, 0.2);
             transform: translateY(-2px);
+            color: #ffffff;
         }
 
         .main-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2.5rem;
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 3rem;
+            gap: 3.5rem;
         }
 
         .article-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(59, 130, 246, 0.08);
+            border-radius: 25px;
+            padding: 2.5rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
             transition: transform 0.3s ease;
         }
 
         .article-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
 
         .category-tag {
             display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .article-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+            background: linear-gradient(45deg, #ffffff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .article-subtitle {
-            font-size: 1.2rem;
-            color: #b0b0b0;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            color: #94a3b8;
+            margin-bottom: 2.5rem;
             line-height: 1.6;
         }
 
@@ -124,206 +125,210 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .author-info {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             color: white;
+            font-size: 1.1rem;
         }
 
         .author-details .name {
-            font-weight: 600;
+            font-weight: 700;
             color: #ffffff;
+            font-size: 1rem;
         }
 
         .author-details .date {
-            color: #888;
+            color: #64748b;
             font-size: 0.9rem;
         }
 
         .social-share {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
         .share-btn {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             border: none;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(59, 130, 246, 0.15);
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
         }
 
         .share-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
+            background: rgba(59, 130, 246, 0.3);
+            transform: scale(1.15);
         }
 
         .article-image {
             width: 100%;
-            height: 300px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            margin-bottom: 1rem;
+            height: 320px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .article-content {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.8;
-            color: #e0e0e0;
+            color: #cbd5e1;
         }
 
         .article-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .sidebar {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 2rem;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 25px;
+            padding: 2.5rem;
             height: fit-content;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .sidebar-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
             color: #ffffff;
         }
 
         .trending-item {
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 1.2rem;
+            border-radius: 15px;
+            margin-bottom: 1.2rem;
+            background: rgba(59, 130, 246, 0.08);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .trending-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateX(8px);
         }
 
         .trending-title {
-            font-weight: 600;
+            font-weight: 700;
             color: #ffffff;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
         }
 
         .trending-meta {
-            color: #888;
-            font-size: 0.8rem;
+            color: #64748b;
+            font-size: 0.85rem;
         }
 
         .comments-section {
-            margin-top: 3rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 3.5rem;
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 25px;
+            padding: 2.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
         }
 
         .comments-header {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
             color: #ffffff;
         }
 
         .comment-form {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 1.2rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 15px;
+            background: rgba(59, 130, 246, 0.08);
             color: #ffffff;
             font-size: 1rem;
         }
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: #888;
+            color: #64748b;
         }
 
         .submit-comment {
-            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
             color: white;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            font-weight: 600;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
             cursor: pointer;
             transition: transform 0.3s ease;
+            font-size: 1rem;
         }
 
         .submit-comment:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .comment {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 3px solid #00d4ff;
+            background: rgba(59, 130, 246, 0.08);
+            border-radius: 15px;
+            padding: 1.8rem;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #3b82f6;
         }
 
         .comment-author {
-            font-weight: 600;
-            color: #00d4ff;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.6rem;
         }
 
         .comment-text {
-            color: #e0e0e0;
+            color: #cbd5e1;
             line-height: 1.6;
         }
 
         @media (max-width: 768px) {
             .main-container {
                 grid-template-columns: 1fr;
-                padding: 1rem;
+                padding: 1.5rem;
             }
             
             .article-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .nav-menu {
@@ -335,13 +340,13 @@
 <body>
     <header class="header">
         <div class="nav-container">
-            <div class="logo">DarkNews</div>
+            <div class="logo">Plus news</div>
             <ul class="nav-menu">
+                <li><a href="#" class="nav-link"></a></li>
+                <li><a href="#" class="nav-link">Headline</a></li>
+                <li><a href="#" class="nav-link">Policits</a></li>
                 <li><a href="#" class="nav-link">Tech</a></li>
-                <li><a href="#" class="nav-link">Politics</a></li>
-                <li><a href="#" class="nav-link">Business</a></li>
-                <li><a href="#" class="nav-link">Health</a></li>
-                <li><a href="#" class="nav-link">Science</a></li>
+                <li><a href="#" class="nav-link">Entertainment</a></li>
             </ul>
         </div>
     </header>
@@ -349,20 +354,16 @@
     <div class="main-container">
         <main>
             <article class="article-card">
-                <div class="category-tag">POLITICS</div>
-                <h1 class="article-title">Tariff Deal Eases Uncertainty, but Trade Imbalance and Massive Investment Pose Major Hurdles</h1>
-                <p class="article-subtitle">
-                    South Korean goods to face 15% tariffs, while American goods remain duty-free
-                    President Bronson’s call for “full market access” may spark future disputes
-                    $350 billion U.S. investment fund and LNG purchases seen as trade-off
-                </p>
+                <div class="category-tag">Politics</div>
+                <h1 class="article-title">[Breaking] 2026 Median Income for Four-Person Household Set at KRW 6,494,738 — a 6.51% Increase
+    
 
                 <div class="article-meta">
                     <div class="author-info">
-                        <div class="author-avatar">김</div>
+                        <div class="author-avatar">AS</div>
                         <div class="author-details">
-                            <div class="name">Reporter Kim Taehyun</div>
-                            <div class="date">March 15, 2024 • 3 hours ago</div>
+                            <div class="name">Alex Smith</div>
+                            <div class="date">December 15, 2024 • 2 hours ago</div>
                         </div>
                     </div>
                     <div class="social-share">
@@ -373,21 +374,14 @@
                 </div>
 
                 <div class="article-image">
-                    <div>International Trade Conference</div>
+                    <div>Advanced AI Research Laboratory</div>
                 </div>
 
                 <div class="article-content">
                     <p>
-                        South Korea and the United States have agreed to set reciprocal tariffs on South Korean exports to the U.S., including automobiles, at 15%. While South Korean exporters have expressed relief at avoiding the originally planned 25% tariffs, the agreement comes with a high price: South Korea will launch a $350 billion investment fund in the U.S. and commit to large-scale purchases of liquefied natural gas (LNG).
+                        The “standard median income,” which serves as the benchmark for various welfare programs including the Basic Livelihood Security Program, has been set at KRW 6,494,738 per month for a four-person household in 2026—reflecting a 6.51% increase from the previous year.
 
-                        The new trade framework has sparked concerns over structural inequality. Products from South Korea, which had previously benefited from duty-free access under the Free Trade Agreement (FTA), will now be subject to a 15% tariff. Meanwhile, American goods will continue to enter South Korea without tariffs—creating a trade imbalance that critics argue is unfair. Presidents Richard Bronson and Hong Gil-dong have also agreed to hold their first summit within two weeks to officially announce the deal.
-                        
-                        The South Korean negotiation team, led by Deputy Prime Minister and Finance Minister Koo Yoon-chul, concluded the deal with President Bronson at the White House on the afternoon of the 30th (local time), just two days before the new tariffs were scheduled to take effect. On the 31st, Kim Yong-bum, Chief Policy Secretary to the President, stated in a briefing, “The U.S. has agreed to lower the reciprocal tariff rate from 25% to 15%, including on key export items like automobiles.”
-                        
-                        South Korean goods have faced a base tariff of 10% since April, and this deal effectively increases the overall rate by 5 percentage points. However, the tariff on automobiles, which had been raised to 25% in May, will now be reduced by 10 percentage points—bringing some relief to the auto sector.
-                        
-                        Secretary Kim also noted that South Korea had secured relatively favorable treatment on potential tariffs for semiconductors and pharmaceuticals. “In consideration of food security and the sensitivity of our agricultural sector, we agreed not to further open the markets for rice and beef,” he added.
-                        
+On the 31st, the Ministry of Health and Welfare convened the Central Livelihood Security Committee, where it reviewed and approved the median income for 2026, along with eligibility thresholds and minimum benefit levels for Basic Livelihood Security and other public assistance programs.
                     </p>
                 </div>
 
@@ -399,14 +393,14 @@
                             <input type="text" id="commenter-name" placeholder="Enter your name">
                         </div>
                         <div class="form-group">
-                            <textarea id="comment-text" rows="4" placeholder="Write your comment..."></textarea>
+                            <textarea id="comment-text" rows="4" placeholder="Share your thoughts on this AI breakthrough..."></textarea>
                         </div>
                         <button class="submit-comment" onclick="addComment()">Post Comment</button>
                     </div>
 
                     <div id="comments-list">
-                        <div style="text-align: center; color: #888; padding: 2rem;">
-                            Be the first to comment!
+                        <div style="text-align: center; color: #64748b; padding: 2rem;">
+                            Be the first to share your thoughts!
                         </div>
                     </div>
                 </div>
@@ -414,22 +408,22 @@
         </main>
 
         <aside class="sidebar">
-            <h3 class="sidebar-title">🔥 Trending News</h3>
+            <h3 class="sidebar-title">🚀 Trending in Tech</h3>
             <div class="trending-item">
-                <div class="trending-title">Meta Unveils Major VR Metaverse Platform Upgrade</div>
-                <div class="trending-meta">2 hours ago • 1,234 views</div>
+                <div class="trending-title">Apple Announces M4 Pro Chip with Enhanced Neural Engine</div>
+                <div class="trending-meta">1 hour ago • 2,847 views</div>
             </div>
             <div class="trending-item">
-                <div class="trending-title">Tesla Launches Full Self-Driving Beta Worldwide</div>
-                <div class="trending-meta">4 hours ago • 2,567 views</div>
+                <div class="trending-title">Microsoft Azure Quantum Computing Breakthrough</div>
+                <div class="trending-meta">3 hours ago • 1,923 views</div>
             </div>
             <div class="trending-item">
-                <div class="trending-title">Apple Reveals MacBook Pro with M4 Chip</div>
-                <div class="trending-meta">6 hours ago • 3,891 views</div>
+                <div class="trending-title">Tesla Robotaxi Fleet Begins Commercial Operations</div>
+                <div class="trending-meta">5 hours ago • 4,156 views</div>
             </div>
             <div class="trending-item">
-                <div class="trending-title">Google Announces Quantum Computer Commercialization</div>
-                <div class="trending-meta">8 hours ago • 1,678 views</div>
+                <div class="trending-title">Google Launches Next-Gen Quantum Processor</div>
+                <div class="trending-meta">7 hours ago • 3,274 views</div>
             </div>
         </aside>
     </div>
@@ -451,7 +445,7 @@
                 id: commentId++,
                 name: name,
                 text: text,
-                date: new Date().toLocaleString('ko-KR')
+                date: new Date().toLocaleString('en-US')
             };
 
             comments.push(comment);
@@ -475,7 +469,7 @@
             commentCount.textContent = comments.length;
 
             if (comments.length === 0) {
-                commentsList.innerHTML = '<div style="text-align: center; color: #888; padding: 2rem;">Be the first to comment!</div>';
+                commentsList.innerHTML = '<div style="text-align: center; color: #64748b; padding: 2rem;">Be the first to share your thoughts!</div>';
                 return;
             }
 
@@ -483,7 +477,7 @@
                 <div class="comment">
                     <div class="comment-author">${escapeHtml(comment.name)} • ${comment.date}</div>
                     <div class="comment-text">${escapeHtml(comment.text)}</div>
-                    <button onclick="removeComment(${comment.id})" style="margin-top: 0.5rem; background: #ff4757; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 5px; cursor: pointer; font-size: 0.8rem;">Delete</button>
+                    <button onclick="removeComment(${comment.id})" style="margin-top: 0.8rem; background: #ef4444; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem;">Delete</button>
                 </div>
             `).join('');
 
@@ -499,14 +493,14 @@
         // Trending items click event
         document.querySelectorAll('.trending-item').forEach(item => {
             item.addEventListener('click', function() {
-                alert('Navigating to the article.');
+                alert('Navigating to the selected article.');
             });
         });
 
         // Share button events
         document.querySelectorAll('.share-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                alert('Share functionality coming soon.');
+                alert('Share functionality available soon.');
             });
         });
     </script>
