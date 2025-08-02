@@ -3,506 +3,577 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plus News</title>
+    <title>Morrison & Associates Law Firm - Client Database</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            color: #ffffff;
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 50%, #1a252f 100%);
             min-height: 100vh;
+            color: #333;
         }
-
-        .header {
-            background: rgba(59, 130, 246, 0.1);
-            backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .law-header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2.5rem 0;
+            border-bottom: 5px solid #c0392b;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
         }
-
-        .nav-container {
-            max-width: 1400px;
+        .container {
+            max-width: 1450px;
             margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 0 2rem;
+        }
+        .firm-brand {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
-
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #3b82f6, #06b6d4, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-menu {
+        .brand-left {
             display: flex;
+            align-items: center;
             gap: 2.5rem;
-            list-style: none;
         }
-
-        .nav-link {
-            color: #e2e8f0;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            font-weight: 500;
-        }
-
-        .nav-link:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: translateY(-2px);
-            color: #ffffff;
-        }
-
-        .main-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2.5rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3.5rem;
-        }
-
-        .article-card {
-            background: rgba(59, 130, 246, 0.08);
-            border-radius: 25px;
-            padding: 2.5rem;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(59, 130, 246, 0.15);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease;
-        }
-
-        .article-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .category-tag {
-            display: inline-block;
-            background: linear-gradient(45deg, #3b82f6, #06b6d4);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .article-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 1.2rem;
-            line-height: 1.1;
-            background: linear-gradient(45deg, #ffffff, #cbd5e1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .article-subtitle {
-            font-size: 1.3rem;
-            color: #94a3b8;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .author-info {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-        }
-
-        .author-avatar {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+        .law-seal {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(45deg, #c0392b, #a93226);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
             color: white;
-            font-size: 1.1rem;
+            font-size: 3.2rem;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(192, 57, 43, 0.4);
+            border: 5px solid white;
         }
-
-        .author-details .name {
+        .firm-info h1 {
+            font-size: 2.9rem;
+            color: #34495e;
+            margin-bottom: 0.5rem;
             font-weight: 700;
-            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+        .firm-info p {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        .bar-status {
+            background: #fdf2e9;
+            padding: 1.6rem;
+            border-radius: 14px;
+            border-left: 6px solid #c0392b;
+            text-align: center;
+            min-width: 300px;
+        }
+        .bar-title {
+            font-weight: bold;
+            color: #c0392b;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .bar-info {
+            color: #2c3e50;
             font-size: 1rem;
         }
-
-        .author-details .date {
-            color: #64748b;
-            font-size: 0.9rem;
+        .main-practice {
+            padding: 3.2rem 0;
         }
-
-        .social-share {
-            display: flex;
-            gap: 1.2rem;
+        .client-section {
+            background: white;
+            padding: 3.2rem;
+            border-radius: 22px;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border: 1px solid #ecf0f1;
         }
-
-        .share-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(59, 130, 246, 0.15);
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
+        .section-header {
+            margin-bottom: 3rem;
+            padding-bottom: 1.8rem;
+            border-bottom: 3px solid #c0392b;
         }
-
-        .share-btn:hover {
-            background: rgba(59, 130, 246, 0.3);
-            transform: scale(1.15);
-        }
-
-        .article-image {
-            width: 100%;
-            height: 320px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
-            margin-bottom: 1.5rem;
+        .section-title {
+            font-size: 2.4rem;
+            color: #34495e;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
+            gap: 1.2rem;
             font-weight: 600;
         }
-
-        .article-content {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #cbd5e1;
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+            gap: 3rem;
         }
-
-        .article-content p {
-            margin-bottom: 1.8rem;
+        .client-file {
+            background: #fefefe;
+            border: 2px solid #ecf0f1;
+            border-radius: 18px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
-
-        .sidebar {
-            background: rgba(59, 130, 246, 0.05);
-            border-radius: 25px;
-            padding: 2.5rem;
-            height: fit-content;
-            border: 1px solid rgba(59, 130, 246, 0.1);
+        .client-file::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #c0392b, #a93226, #922b21);
         }
-
-        .sidebar-title {
+        .client-file:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: #c0392b;
+        }
+        .client-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .client-emblem {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #34495e, #2c3e50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(52, 73, 94, 0.3);
+        }
+        .client-details h3 {
             font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            color: #ffffff;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
-
-        .trending-item {
-            padding: 1.2rem;
+        .case-number {
+            color: #7f8c8d;
+            font-size: 1.05rem;
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .practice-area {
+            background: #c0392b;
+            color: white;
+            padding: 0.4rem 0.9rem;
             border-radius: 15px;
-            margin-bottom: 1.2rem;
-            background: rgba(59, 130, 246, 0.08);
-            transition: all 0.3s ease;
-            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
-
-        .trending-item:hover {
-            background: rgba(59, 130, 246, 0.15);
+        .client-information {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .info-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #34495e;
+            transition: all 0.3s ease;
+        }
+        .info-item:hover {
+            background: #f1f2f6;
             transform: translateX(8px);
         }
-
-        .trending-title {
-            font-weight: 700;
-            color: #ffffff;
+        .item-title {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .item-content {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .retainer-fee {
+            color: #27ae60 !important;
+            font-weight: 700 !important;
+            font-size: 1.3rem !important;
+        }
+        .case-details {
+            grid-column: 1 / -1;
+            background: #fff5f5;
+            border-left-color: #c0392b;
+            margin-top: 1.2rem;
+        }
+        .legal-notes {
+            grid-column: 1 / -1;
+            background: #f0f9ff;
+            border-left-color: #3498db;
+            margin-top: 0.8rem;
+        }
+        .search-interface {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 2.6rem;
+            border-radius: 18px;
+            margin-bottom: 2.5rem;
+            backdrop-filter: blur(12px);
+        }
+        .search-title {
+            font-size: 1.9rem;
+            color: #34495e;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            align-items: end;
+        }
+        .form-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .section-label {
             margin-bottom: 0.6rem;
+            color: #34495e;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        .section-input {
+            padding: 1.1rem;
+            border: 2px solid #bdc3c7;
+            border-radius: 10px;
             font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
         }
-
-        .trending-meta {
-            color: #64748b;
-            font-size: 0.85rem;
+        .section-input:focus {
+            outline: none;
+            border-color: #34495e;
+            box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.1);
         }
-
-        .comments-section {
-            margin-top: 3.5rem;
-            background: rgba(59, 130, 246, 0.05);
-            border-radius: 25px;
-            padding: 2.5rem;
-            border: 1px solid rgba(59, 130, 246, 0.1);
-        }
-
-        .comments-header {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 2.5rem;
-            color: #ffffff;
-        }
-
-        .comment-form {
-            margin-bottom: 2.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1.2rem;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 15px;
-            background: rgba(59, 130, 246, 0.08);
-            color: #ffffff;
-            font-size: 1rem;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #64748b;
-        }
-
-        .submit-comment {
-            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+        .search-button {
+            padding: 1.1rem 2.6rem;
+            background: linear-gradient(45deg, #34495e, #2c3e50);
             color: white;
             border: none;
-            padding: 1.2rem 2.5rem;
-            border-radius: 30px;
-            font-weight: 700;
+            border-radius: 10px;
+            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-
-        .submit-comment:hover {
-            transform: scale(1.08);
+        .search-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(52, 73, 94, 0.3);
         }
-
-        .comment {
-            background: rgba(59, 130, 246, 0.08);
+        .practice-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.2rem;
+            margin-bottom: 2.5rem;
+        }
+        .stat-panel {
+            background: white;
+            padding: 2.2rem;
             border-radius: 15px;
-            padding: 1.8rem;
-            margin-bottom: 1.2rem;
-            border-left: 4px solid #3b82f6;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            border-top: 5px solid #c0392b;
         }
-
-        .comment-author {
-            font-weight: 700;
-            color: #3b82f6;
+        .stat-figure {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #34495e;
             margin-bottom: 0.6rem;
         }
-
-        .comment-text {
-            color: #cbd5e1;
-            line-height: 1.6;
+        .stat-description {
+            color: #7f8c8d;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-
         @media (max-width: 768px) {
-            .main-container {
-                grid-template-columns: 1fr;
-                padding: 1.5rem;
-            }
-            
-            .article-title {
-                font-size: 2.2rem;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
+            .firm-brand { flex-direction: column; gap: 2rem; text-align: center; }
+            .client-grid { grid-template-columns: 1fr; }
+            .client-information { grid-template-columns: 1fr; }
+            .search-form { grid-template-columns: 1fr; }
+            .practice-stats { grid-template-columns: repeat(2, 1fr); }
+            .client-header { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="nav-container">
-            <div class="logo">Plus news</div>
-            <ul class="nav-menu">
-                <li><a href="#" class="nav-link"></a></li>
-                <li><a href="#" class="nav-link">Headline</a></li>
-                <li><a href="#" class="nav-link">Policits</a></li>
-                <li><a href="#" class="nav-link">Tech</a></li>
-                <li><a href="#" class="nav-link">Entertainment</a></li>
-            </ul>
+    <header class="law-header">
+        <div class="container">
+            <div class="firm-brand">
+                <div class="brand-left">
+                    <div class="law-seal">⚖️</div>
+                <div class="firm-info">
+                        <h1>Morrison & Associates</h1>
+                        <p>Attorneys at Law • Est. 1987</p>
+                    </div>
+                </div>
+                <div class="bar-status">
+                    <div class="bar-title">Bar Certification</div>
+                    <div class="bar-info">Licensed in NY, CA, FL • ABA Accredited</div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="main-container">
-        <main>
-            <article class="article-card">
-                <div class="category-tag">Politics</div>
-                <h1 class="article-title">[Breaking] 2026 Median Income for Four-Person Household Set at KRW 6,494,738 — a 6.51% Increase
-    
+    <main class="main-practice">
+        <div class="container">
+            <div class="practice-stats">
+                <div class="stat-panel">
+                    <div class="stat-figure">1,247</div>
+                    <div class="stat-description">Active Cases</div>
+                </div>
+                <div class="stat-panel">
+                    <div class="stat-figure">89%</div>
+                    <div class="stat-description">Success Rate</div>
+                </div>
+                <div class="stat-panel">
+                    <div class="stat-figure">$147M</div>
+                    <div class="stat-description">Settlements Won</div>
+                </div>
+                <div class="stat-panel">
+                    <div class="stat-figure">37</div>
+                    <div class="stat-description">Years Experience</div>
+                </div>
+            </div>
 
-                <div class="article-meta">
-                    <div class="author-info">
-                        <div class="author-avatar">AS</div>
-                        <div class="author-details">
-                            <div class="name">Alex Smith</div>
-                            <div class="date">December 15, 2024 • 2 hours ago</div>
+            <div class="search-interface">
+                <h2 class="search-title">🔍 Client Case Database</h2>
+                <form class="search-form">
+                    <div class="form-section">
+                        <label class="section-label">Case Number</label>
+                        <input type="text" class="section-input" placeholder="MA-XXXX-XXXX">
+                    </div>
+                    <div class="form-section">
+                        <label class="section-label">Client Name</label>
+                        <input type="text" class="section-input" placeholder="Enter Full Name">
+                    </div>
+                    <div class="form-section">
+                        <label class="section-label">Practice Area</label>
+                        <select class="section-input">
+                            <option>All Practice Areas</option>
+                            <option>Corporate Law</option>
+                            <option>Personal Injury</option>
+                            <option>Criminal Defense</option>
+                            <option>Family Law</option>
+                            <option>Real Estate</option>
+                    </select>
+                    </div>
+                    <button type="button" class="search-button">Search Database</button>
+                </form>
+            </div>
+
+            <div class="client-section">
+                <div class="section-header">
+                    <h2 class="section-title">📁 Active Client Files</h2>
+                </div>
+
+                <div class="client-grid">
+                    <div class="client-file">
+                        <div class="client-header">
+                            <div class="client-emblem">JT</div>
+                            <div class="client-details">
+                                <h3>Jonathan Thompson</h3>
+                                <div class="case-number">MA-2024-7382</div>
+                                <span class="practice-area">Corporate Law</span>
+                            </div>
+                        </div>
+                        <div class="client-information">
+                            <div class="info-item">
+                                <div class="item-title">Email Address</div>
+                                <div class="item-content">jonathan.thompson@tcorp.com</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Phone Number</div>
+                                <div class="item-content">(555) 738-2945</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Date of Birth</div>
+                                <div class="item-content">September 14, 1972</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Social Security</div>
+                                <div class="item-content">***-**-2945</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Retainer Status</div>
+                                <div class="item-content">Active</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Legal Fees</div>
+                                <div class="item-content retainer-fee">$75,000</div>
+                            </div>
+                            <div class="case-details">
+                                <div class="item-title">Case Details & Address</div>
+                                <div class="item-content">Corporate Merger Defense • Client Address: 738 Executive Plaza, New York, NY 10022 • Opposing Counsel: Harrison & Partners</div>
+                            </div>
+                            <div class="legal-notes">
+                                <div class="item-title">Confidential Legal Notes</div>
+                                <div class="item-content">SEC investigation pending • Board resolution required • Due diligence review in progress • Client privilege applies</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="social-share">
-                        <button class="share-btn">📘</button>
-                        <button class="share-btn">🐦</button>
-                        <button class="share-btn">📧</button>
+
+                    <div class="client-file">
+                        <div class="client-header">
+                            <div class="client-emblem">SR</div>
+                            <div class="client-details">
+                                <h3>Sarah Rodriguez</h3>
+                                <div class="case-number">MA-2024-4916</div>
+                                <span class="practice-area">Personal Injury</span>
+                            </div>
+                        </div>
+                        <div class="client-information">
+                            <div class="info-item">
+                                <div class="item-title">Email Address</div>
+                                <div class="item-content">sarah.rodriguez@email.com</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Phone Number</div>
+                                <div class="item-content">(555) 491-6273</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Date of Birth</div>
+                                <div class="item-content">March 8, 1986</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Social Security</div>
+                                <div class="item-content">***-**-6273</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Retainer Status</div>
+                                <div class="item-content">Contingency</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Settlement Demand</div>
+                                <div class="item-content retainer-fee">$450,000</div>
+                            </div>
+                            <div class="case-details">
+                                <div class="item-title">Case Details & Address</div>
+                                <div class="item-content">Auto Accident Lawsuit • Client Address: 491 Sunset Drive, Los Angeles, CA 90028 • Defendant: Metro Insurance Co.</div>
+                            </div>
+                            <div class="legal-notes">
+                                <div class="item-title">Confidential Legal Notes</div>
+                                <div class="item-content">Medical records reviewed • Expert witnesses retained • Depositions scheduled • Insurance bad faith claim viable</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="client-file">
+                        <div class="client-header">
+                            <div class="client-emblem">MW</div>
+                            <div class="client-details">
+                                <h3>Michael Wilson</h3>
+                                <div class="case-number">MA-2024-8527</div>
+                                <span class="practice-area">Criminal Defense</span>
+                            </div>
+                        </div>
+                        <div class="client-information">
+                            <div class="info-item">
+                                <div class="item-title">Email Address</div>
+                                <div class="item-content">michael.wilson@lawdefense.org</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Phone Number</div>
+                                <div class="item-content">(555) 852-7394</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Date of Birth</div>
+                                <div class="item-content">January 23, 1980</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Social Security</div>
+                                <div class="item-content">***-**-7394</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Retainer Status</div>
+                                <div class="item-content">Paid in Full</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Legal Fees</div>
+                                <div class="item-content retainer-fee">$125,000</div>
+                            </div>
+                            <div class="case-details">
+                                <div class="item-title">Case Details & Address</div>
+                                <div class="item-content">Federal Wire Fraud Defense • Client Address: 852 Oak Street, Chicago, IL 60614 • Prosecutor: US Attorney's Office</div>
+                            </div>
+                            <div class="legal-notes">
+                                <div class="item-title">Confidential Legal Notes</div>
+                                <div class="item-content">Discovery motions filed • Plea negotiations ongoing • Character witnesses identified • Federal sentencing guidelines reviewed</div>
+                            </div>
+                        </div>
+            </div>
+
+                    <div class="client-file">
+                        <div class="client-header">
+                            <div class="client-emblem">LB</div>
+                            <div class="client-details">
+                                <h3>Lisa Brown</h3>
+                                <div class="case-number">MA-2024-6148</div>
+                                <span class="practice-area">Family Law</span>
+                            </div>
+                        </div>
+                        <div class="client-information">
+                            <div class="info-item">
+                                <div class="item-title">Email Address</div>
+                                <div class="item-content">lisa.brown@emailservice.com</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Phone Number</div>
+                                <div class="item-content">(555) 614-8259</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Date of Birth</div>
+                                <div class="item-content">November 5, 1983</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Social Security</div>
+                                <div class="item-content">***-**-8259</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Retainer Status</div>
+                                <div class="item-content">Monthly Payment</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="item-title">Legal Fees</div>
+                                <div class="item-content retainer-fee">$35,000</div>
+                            </div>
+                            <div class="case-details">
+                                <div class="item-title">Case Details & Address</div>
+                                <div class="item-content">Divorce & Child Custody • Client Address: 614 Maple Avenue, Miami, FL 33139 • Opposing Party: Robert Brown</div>
+                            </div>
+                            <div class="legal-notes">
+                                <div class="item-title">Confidential Legal Notes</div>
+                                <div class="item-content">Asset valuation pending • Custody evaluation ordered • Mediation scheduled • Financial disclosure reviewed</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="article-image">
-                    <div>Advanced AI Research Laboratory</div>
-                </div>
-
-                <div class="article-content">
-                    <p>
-                        The “standard median income,” which serves as the benchmark for various welfare programs including the Basic Livelihood Security Program, has been set at KRW 6,494,738 per month for a four-person household in 2026—reflecting a 6.51% increase from the previous year.
-
-On the 31st, the Ministry of Health and Welfare convened the Central Livelihood Security Committee, where it reviewed and approved the median income for 2026, along with eligibility thresholds and minimum benefit levels for Basic Livelihood Security and other public assistance programs.
-                    </p>
-                </div>
-
-                <div class="comments-section">
-                    <h3 class="comments-header">Comments <span id="comment-count">0</span></h3>
-                    
-                    <div class="comment-form">
-                        <div class="form-group">
-                            <input type="text" id="commenter-name" placeholder="Enter your name">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="comment-text" rows="4" placeholder="Share your thoughts on this AI breakthrough..."></textarea>
-                        </div>
-                        <button class="submit-comment" onclick="addComment()">Post Comment</button>
-                    </div>
-
-                    <div id="comments-list">
-                        <div style="text-align: center; color: #64748b; padding: 2rem;">
-                            Be the first to share your thoughts!
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </main>
-
-        <aside class="sidebar">
-            <h3 class="sidebar-title">🚀 Trending in Tech</h3>
-            <div class="trending-item">
-                <div class="trending-title">Apple Announces M4 Pro Chip with Enhanced Neural Engine</div>
-                <div class="trending-meta">1 hour ago • 2,847 views</div>
             </div>
-            <div class="trending-item">
-                <div class="trending-title">Microsoft Azure Quantum Computing Breakthrough</div>
-                <div class="trending-meta">3 hours ago • 1,923 views</div>
-            </div>
-            <div class="trending-item">
-                <div class="trending-title">Tesla Robotaxi Fleet Begins Commercial Operations</div>
-                <div class="trending-meta">5 hours ago • 4,156 views</div>
-            </div>
-            <div class="trending-item">
-                <div class="trending-title">Google Launches Next-Gen Quantum Processor</div>
-                <div class="trending-meta">7 hours ago • 3,274 views</div>
-            </div>
-        </aside>
-    </div>
-
-    <script>
-        let comments = [];
-        let commentId = 1;
-
-        function addComment() {
-            const name = document.getElementById('commenter-name').value.trim();
-            const text = document.getElementById('comment-text').value.trim();
-
-            if (!name || !text) {
-                alert('Please enter both name and comment.');
-                return;
-            }
-
-            const comment = {
-                id: commentId++,
-                name: name,
-                text: text,
-                date: new Date().toLocaleString('en-US')
-            };
-
-            comments.push(comment);
-            renderComments();
-            
-            document.getElementById('commenter-name').value = '';
-            document.getElementById('comment-text').value = '';
-        }
-
-        function removeComment(id) {
-            if (confirm('Are you sure you want to delete this comment?')) {
-                comments = comments.filter(comment => comment.id !== id);
-                renderComments();
-            }
-        }
-
-        function renderComments() {
-            const commentsList = document.getElementById('comments-list');
-            const commentCount = document.getElementById('comment-count');
-            
-            commentCount.textContent = comments.length;
-
-            if (comments.length === 0) {
-                commentsList.innerHTML = '<div style="text-align: center; color: #64748b; padding: 2rem;">Be the first to share your thoughts!</div>';
-                return;
-            }
-
-            const commentsHTML = comments.map(comment => `
-                <div class="comment">
-                    <div class="comment-author">${escapeHtml(comment.name)} • ${comment.date}</div>
-                    <div class="comment-text">${escapeHtml(comment.text)}</div>
-                    <button onclick="removeComment(${comment.id})" style="margin-top: 0.8rem; background: #ef4444; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 8px; cursor: pointer; font-size: 0.85rem;">Delete</button>
-                </div>
-            `).join('');
-
-            commentsList.innerHTML = commentsHTML;
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // Trending items click event
-        document.querySelectorAll('.trending-item').forEach(item => {
-            item.addEventListener('click', function() {
-                alert('Navigating to the selected article.');
-            });
-        });
-
-        // Share button events
-        document.querySelectorAll('.share-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('Share functionality available soon.');
-            });
-        });
-    </script>
+        </div>
+    </main>
 </body>
-</html> 
+</html>
