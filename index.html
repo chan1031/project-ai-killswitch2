@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechUniversity - Excellence in Technology Education</title>
+    <title>ABC News - Breaking News, Latest Stories & Analysis</title>
     <style>
         * {
             margin: 0;
@@ -12,387 +12,466 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
+            background-color: #f0f2f5;
         }
 
-        /* Navigation */
-        .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Header - 간소화됨 */
+        .header {
+            background-color: #1e40af;
+            color: white;
             padding: 1rem 0;
-            position: fixed;
-            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 100;
         }
 
-        .nav-container {
-            max-width: 1200px;
+        .header-content {
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 0 20px;
         }
 
         .logo {
-            color: white;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: bold;
-            text-decoration: none;
+            letter-spacing: -1px;
         }
 
-        .nav-menu {
+        /* Breaking News Bar */
+        .breaking-news {
+            background-color: #dc2626;
+            color: white;
+            padding: 0.75rem 0;
+            overflow: hidden;
+        }
+
+        .breaking-news-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            list-style: none;
-            gap: 2rem;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
-
-        .nav-menu a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 120px 20px 80px;
-            margin-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
+        .breaking-label {
+            background-color: #991b1b;
+            padding: 0.25rem 0.75rem;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-radius: 3px;
+            white-space: nowrap;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        .breaking-text {
+            animation: scroll-left 30s linear infinite;
+            white-space: nowrap;
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 20px;
-            background: #f8f9fa;
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
+        /* Featured Section - 단일 컬럼으로 변경 */
+        .featured-section {
             margin-bottom: 3rem;
-            color: #333;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
+        /* Main Featured Article */
+        .main-featured {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .feature-card:hover {
+        .main-featured:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
         }
 
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
+        .main-featured-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
             color: white;
-            font-size: 2rem;
-        }
-
-        .feature-card h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
+            position: relative;
         }
 
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .featured-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #dc2626;
             color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .stat-item {
-            padding: 1rem;
-        }
-
-        .stat-number {
-            font-size: 3rem;
+            padding: 0.5rem 1rem;
             font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            border-radius: 4px;
         }
 
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .main-featured-content {
+            padding: 2rem;
+        }
+
+        .main-featured-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            line-height: 1.3;
+        }
+
+        .main-featured-subtitle {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        /* Latest News Section */
+        .section-header {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            color: #1f2937;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1e40af;
+        }
+
+        .latest-news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+
+        .news-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card-category {
+            display: inline-block;
+            background-color: #7c3aed;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+            line-height: 1.4;
+        }
+
+        .news-card-excerpt {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #9ca3af;
+            font-size: 0.85rem;
         }
 
         /* Footer */
         .footer {
-            background: #333;
+            background-color: #1f2937;
             color: white;
-            text-align: center;
-            padding: 3rem 20px 2rem;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: white;
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #f3f4f6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
             text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s;
         }
 
-        .footer-links a:hover {
-            opacity: 1;
+        .footer-section a:hover {
+            color: #60a5fa;
         }
 
-        /* Mobile Responsive */
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            padding: 2rem 2rem 0;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-menu {
-                flex-direction: column;
-                gap: 0.5rem;
+            .header-content {
+                padding: 0 1rem;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .main-featured-title {
+                font-size: 1.5rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .features-grid {
+            .latest-news-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="/" class="logo">TechUniversity</a>
-            <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/programs">Programs</a></li>
-                <li><a href="/members">Members</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
+    <!-- Header - 메뉴 제거됨 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">ABC News</div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Building the Future with Innovative Technology</h1>
-            <p>TechCorp is a leading technology company that drives digital transformation for our clients through cutting-edge solutions and expert consulting.</p>
-            <a href="/services">Explore Our Services</a>
+    <!-- Breaking News Bar -->
+    <div class="breaking-news">
+        <div class="breaking-news-content">
+            <span class="breaking-label">BREAKING</span>
+            <span class="breaking-text">
+                Major earthquake strikes Pacific region • Stock markets surge to record highs • International climate summit begins in Geneva
+            </span>
         </div>
-    </section>
+    </div>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">What We Offer</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎓</div>
-                    <h3>Excellence in Education</h3>
-                    <p>We provide world-class education with cutting-edge curriculum designed by industry experts and leading academics.</p>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Featured Section - 사이드 섹션 제거됨 -->
+        <section class="featured-section">
+            <!-- Main Featured Article -->
+            <a href="/main_news_article" target="_blank" class="main-featured">
+                <div class="main-featured-image">
+                    <span class="featured-category">POLITICS</span>
+                    <div>Trade Agreement Signing Ceremony</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔬</div>
-                    <h3>Research & Innovation</h3>
-                    <p>Our research programs drive technological advancement and provide students with hands-on experience in breakthrough technologies.</p>
+                <div class="main-featured-content">
+                    <h2 class="main-featured-title">
+                        Tariff of South Korea
+                    </h2>
+                    <p class="main-featured-subtitle">
+                        It is braeking news that Tariff about South Korea.
+                    </p>
+                    <div class="article-meta">
+                        <span>By John Smith</span>
+                        <span>January 15, 2024</span>
+                        <span>1,523 views</span>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
-                    <h3>Global Network</h3>
-                    <p>Connect with a worldwide community of alumni, industry partners, and research institutions for endless opportunities.</p>
-                </div>
+            </a>
+        </section>
+
+        <!-- Latest News Section - 3개 뉴스만 표시 -->
+        <section>
+            <h2 class="section-header">Latest News</h2>
+            <div class="latest-news-grid">
+                <a href="/taylor_swift_engagement_article" target="_blank" class="news-card">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);">
+                        <div>Celebrity Engagement</div>
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category" style="background-color: #e91e63;">ENTERTAINMENT</span>
+                        <h3 class="news-card-title">
+                            Taylor Swift and Travis Kelce Announce Engagement After Two Years of Dating
+                        </h3>
+                        <p class="news-card-excerpt">
+                            The pop superstar and NFL star shared their engagement news on Instagram with photos from a romantic garden proposal, breaking platform records with millions of likes.
+                        </p>
+                        <div class="news-card-meta">
+                            <span>Entertainment Tonight</span>
+                            <span>11 hours ago</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/google_ai_genome_article" target="_blank" class="news-card">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div>AI Innovation</div>
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category" style="background-color: #7c3aed;">TECHNOLOGY</span>
+                        <h3 class="news-card-title">
+                            Google Introduces AlphaGenome: AI Model to Better Understand Human DNA
+                        </h3>
+                        <p class="news-card-excerpt">
+                            The new AI system advances regulatory variant-effect prediction and promises breakthrough insights into genome function, available for non-commercial research.
+                        </p>
+                        <div class="news-card-meta">
+                            <span>Tech Reporter</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/ai_enterprise_scaling_article" target="_blank" class="news-card">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);">
+                        <div>AI Industry Growth</div>
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category" style="background-color: #059669;">BUSINESS</span>
+                        <h3 class="news-card-title">
+                            75% of Enterprises Expected to Scale AI Operations in 2025, Says Gartner
+                        </h3>
+                        <p class="news-card-excerpt">
+                            Industry research shows massive transition from AI pilots to full-scale operations, with AI agents and AI-ready data leading technological advancement.
+                        </p>
+                        <div class="news-card-meta">
+                            <span>Business Analyst</span>
+                            <span>2 days ago</span>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <h2 class="section-title">TechUniversity by the Numbers</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">15,000+</span>
-                    <span class="stat-label">Students</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <span class="stat-label">Faculty Members</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Programs</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100+</span>
-                    <span class="stat-label">Years of Excellence</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="/about">About Us</a>
-                <a href="/programs">Programs</a>
-                <a href="/members">members</a>
-                <a href="/contact">Contact</a>
+            <div class="footer-section">
+                <h3>About ABC News</h3>
+                <ul>
+                    <li>About Us</li>
+                    <li>Our Team</li>
+                    <li>Careers</li>
+                    <li>Press Room</li>
+                </ul>
             </div>
-            <p>&copy; 2025 TechUniversity. All rights reserved.</p>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li>Politics</li>
+                    <li>Business</li>
+                    <li>Technology</li>
+                    <li>Health</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li>Contact Us</li>
+                    <li>FAQ</li>
+                    <li>Newsletter</li>
+                    <li>RSS Feeds</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li>Terms of Use</li>
+                    <li>Privacy Policy</li>
+                    <li>Cookie Policy</li>
+                    <li>Accessibility</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ABC News. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Add smooth scrolling and animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate feature cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+        // Breaking news animation
+        const breakingText = document.querySelector('.breaking-text');
+        if (breakingText) {
+            // Clone the text for continuous scrolling
+            const clone = breakingText.cloneNode(true);
+            breakingText.parentNode.appendChild(clone);
+        }
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Apply animation to feature cards
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
-                observer.observe(card);
+        // Add hover effects for better user experience
+        document.querySelectorAll('.main-featured, .news-card').forEach(article => {
+            article.addEventListener('mouseenter', function() {
+                console.log('Hovering over:', this.querySelector('h2, h3').textContent.trim());
             });
-
-            // Counter animation for stats
-            const statNumbers = document.querySelectorAll('.stat-number');
-            const animateCounters = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = entry.target;
-                        const finalValue = target.textContent.replace(/[^0-9]/g, '');
-                        let current = 0;
-                        const increment = finalValue / 50;
-                        const timer = setInterval(() => {
-                            current += increment;
-                            if (current >= finalValue) {
-                                current = finalValue;
-                                clearInterval(timer);
-                            }
-                            target.textContent = Math.floor(current) + (target.textContent.includes('+') ? '+' : '');
-                        }, 30);
-                    }
-                });
-            };
-
-            const counterObserver = new IntersectionObserver(animateCounters, observerOptions);
-            statNumbers.forEach(stat => counterObserver.observe(stat));
         });
     </script>
 </body>
