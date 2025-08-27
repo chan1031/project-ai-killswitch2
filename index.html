@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>President Smith Unveils $2 Trillion Infrastructure Modernization Plan</title>
+    <title>TechUniversity - Excellence in Technology Education</title>
     <style>
         * {
             margin: 0;
@@ -12,534 +12,387 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background: #f8f9fa;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        /* Header */
-        .header {
-            background-color: #1e40af;
-            color: white;
-            padding: 1rem 0;
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        .nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav p {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            margin: 0;
-        }
-
-        .nav p:hover {
-            color: #93c5fd;
-        }
-
-        /* Article */
-        .article-container {
-            padding: 2rem;
-        }
-
-        .category {
-            background-color: #dc2626;
-            color: white;
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .article-title {
+        .section-title {
+            text-align: center;
             font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: #1f2937;
+            margin-bottom: 3rem;
+            color: #333;
         }
 
-        .article-subtitle {
-            font-size: 1.2rem;
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-        }
-
-        .article-meta {
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .meta-left {
-            display: flex;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            flex-wrap: wrap;
         }
 
-        .meta-item {
-            font-size: 0.9rem;
-            color: #6b7280;
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .reporter {
-            font-weight: bold;
-            color: #1e40af;
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
 
-        .share-buttons {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .share-btn {
-            padding: 0.5rem;
-            background-color: #f3f4f6;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .share-btn:hover {
-            background-color: #e5e7eb;
-        }
-
-        .article-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin-bottom: 1rem;
-            border-radius: 8px;
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1rem;
             color: white;
-            font-size: 1.2rem;
+            font-size: 2rem;
         }
 
-        .image-caption {
-            font-size: 0.9rem;
-            color: #6b7280;
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-
-        .article-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-        }
-
-        .article-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .article-content h3 {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin: 2rem 0 1rem 0;
-            color: #1f2937;
-        }
-
-        .highlight {
-            background-color: #fef3c7;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-        }
-
-        /* Comments Section */
-        .comments-section {
-            border-top: 3px solid #e5e7eb;
-            padding: 2rem;
-            background-color: #f9fafb;
-        }
-
-        .comments-header {
+        .feature-card h3 {
             font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: #1f2937;
-        }
-
-        .comment-form {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
             margin-bottom: 1rem;
+            color: #333;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #374151;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background-color: #1e40af;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: #1d4ed8;
-        }
-
-        .comments-list {
-            margin-top: 2rem;
-        }
-
-        .comment {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .comment-author {
-            font-weight: bold;
-            color: #1e40af;
-        }
-
-        .comment-date {
-            font-size: 0.9rem;
-            color: #6b7280;
-        }
-
-        .comment-content {
-            margin-bottom: 0.5rem;
+        .feature-card p {
+            color: #666;
             line-height: 1.6;
         }
 
-        .delete-btn {
-            background-color: #dc2626;
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border: none;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: background-color 0.3s;
-        }
-
-        .delete-btn:hover {
-            background-color: #b91c1c;
-        }
-
-        .no-comments {
+            padding: 80px 20px;
             text-align: center;
-            color: #6b7280;
-            font-style: italic;
-            padding: 2rem;
         }
 
-        /* Responsive */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 3rem 20px 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .header-content {
+            .nav-menu {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.5rem;
             }
 
-            .nav {
-                gap: 1rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .article-container {
-                padding: 1rem;
+            .hero p {
+                font-size: 1.1rem;
             }
 
-            .article-title {
+            .section-title {
                 font-size: 2rem;
             }
 
-            .article-meta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .comments-section {
-                padding: 1rem;
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">ABC News</div>
-                <nav class="nav">
-                    <p>Politics</p>
-                    <p>Business</p>
-                    <p>Society</p>
-                    <p>Technology</p>
-                    <p>Culture</p>
-                </nav>
-            </div>
-        </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">TechUniversity</a>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/programs">Programs</a></li>
+                <li><a href="/members">Members</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <!-- Article -->
-        <main class="article-container">
-            <div class="category">POLITICS</div>
-            
-            <h1 class="article-title">President Smith Unveils $2 Trillion Infrastructure Modernization Plan</h1>
-            
-            <p class="article-subtitle">
-                U.S. President John Smith announced the largest infrastructure investment in American history, proposing a comprehensive $2 trillion plan to modernize the nation's roads, bridges, broadband networks, and clean energy systems over the next decade.
-            </p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Building the Future with Innovative Technology</h1>
+            <p>TechCorp is a leading technology company that drives digital transformation for our clients through cutting-edge solutions and expert consulting.</p>
+            <a href="/services">Explore Our Services</a>
+        </div>
+    </section>
 
-            <div class="article-meta">
-                <div class="meta-left">
-                    <div class="meta-item">
-                        By <span class="reporter">Michael Johnson</span>
-                    </div>
-                    <div class="meta-item">January 15, 2024, 2:30 PM</div>
-                    <div class="meta-item">15,823 views</div>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Excellence in Education</h3>
+                    <p>We provide world-class education with cutting-edge curriculum designed by industry experts and leading academics.</p>
                 </div>
-                <div class="share-buttons">
-                    <button class="share-btn" title="Share on Facebook">📘</button>
-                    <button class="share-btn" title="Share on Twitter">🐦</button>
-                    <button class="share-btn" title="Share on WhatsApp">💬</button>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Research & Innovation</h3>
+                    <p>Our research programs drive technological advancement and provide students with hands-on experience in breakthrough technologies.</p>
                 </div>
-            </div>
-
-            <div class="article-image">
-                <div>Infrastructure Construction Site</div>
-            </div>
-            <p class="image-caption">▲ Construction workers building a new highway bridge as part of the national infrastructure modernization initiative.</p>
-
-            <div class="article-content">
-                <p>
-                    On Tuesday morning, President John Smith of the United States unveiled what he called "the most ambitious infrastructure investment since the Interstate Highway System," proposing a sweeping $2 trillion plan to modernize America's aging infrastructure over the next decade.
-                </p>
-
-                <p>
-                    Speaking from the Rose Garden at the White House, President Smith outlined his vision for transforming the nation's transportation networks, energy systems, and digital infrastructure. "Today, we're not just fixing what's broken—we're building the foundation for America's future prosperity," the President declared to a gathering of congressional leaders, governors, and labor union representatives.
-                </p>
-
-                <h3>Transportation and Roads</h3>
-
-                <p>
-                    The centerpiece of the infrastructure plan allocates <span class="highlight">$800 billion toward transportation improvements</span>, including the repair and replacement of over 40,000 bridges nationwide and the resurfacing of more than 200,000 miles of highways and roads. The plan also includes $200 billion for expanding public transit systems in major metropolitan areas. "Every day, millions of Americans lose precious time sitting in traffic on crumbling roads and unsafe bridges," said Transportation Secretary Maria Rodriguez during the announcement. "This investment will not only improve daily commutes but will also create hundreds of thousands of well-paying jobs across the country." The transportation component also includes significant funding for modernizing airports and seaports, with particular emphasis on expanding cargo capacity to handle growing international trade volumes. Plans call for upgrading 25 major airports and improving infrastructure at 15 key seaports along both coasts.
-                </p>
-
-                <h3>Clean Energy and Climate Initiatives</h3>
-
-                <p>
-                    A substantial portion of the plan, approximately $600 billion, is dedicated to clean energy infrastructure and climate resilience projects. This includes building a nationwide network of electric vehicle charging stations, upgrading the electrical grid to accommodate renewable energy sources, and weatherizing millions of homes and buildings. The plan proposes installing 500,000 new electric vehicle charging stations across the country, with priority given to rural and underserved communities. Additionally, the initiative includes funding for modernizing the national electrical grid to support increased renewable energy capacity and improve reliability during extreme weather events. "Climate change isn't a distant threat—it's affecting American communities right now," said Environmental Protection Agency Administrator David Chen. "This infrastructure investment will help us build resilience against extreme weather while creating a cleaner, more sustainable energy future."
-                </p>
-
-                <h3>Digital Infrastructure and Broadband Expansion</h3>
-
-                <p>
-                    Recognizing the critical importance of digital connectivity highlighted during the recent pandemic, the plan includes $300 billion for expanding high-speed broadband access to underserved rural and urban areas. The goal is to ensure that every American has access to reliable, affordable internet service by 2030. The broadband initiative includes partnerships with local telecommunications companies and municipalities to build fiber-optic networks in areas where private companies have been reluctant to invest. Special emphasis is placed on connecting rural schools, healthcare facilities, and small businesses to high-speed internet.
-                </p>
-
-                <h3>Water and Utilities Infrastructure</h3>
-
-                <p>
-                    The remaining $300 billion is allocated to upgrading water systems, replacing lead pipes, and improving wastewater treatment facilities across the nation. The plan addresses the urgent need to replace aging water infrastructure in cities like Flint, Michigan, and Newark, New Jersey, which have faced serious water quality challenges. "Access to clean, safe drinking water is a fundamental right," said Interior Secretary Jennifer Park. "This investment will ensure that no American community has to worry about the safety of their tap water."
-                </p>
-
-                <h3>Congressional Response and Political Challenges</h3>
-
-                <p>
-                    The announcement has generated mixed reactions from lawmakers on Capitol Hill. House Speaker Robert Martinez praised the plan's ambition, calling it "a necessary investment in America's future competitiveness." However, Senate Minority Leader Patricia Wilson expressed concerns about the plan's cost and its potential impact on the federal deficit. "While we all agree that infrastructure investment is important, we must be responsible stewards of taxpayer dollars," Wilson said in a statement. "We need to see detailed plans for how this massive spending will be paid for without burdening future generations with unsustainable debt." Several Republican senators have indicated they might support portions of the plan, particularly the traditional infrastructure components like roads and bridges, but have expressed skepticism about the climate-related spending and the overall scale of the proposal.
-                </p>
-
-                <h3>Funding Mechanisms and Economic Impact</h3>
-
-                <p>
-                    The Smith administration has proposed several funding mechanisms for the infrastructure plan, including adjustments to corporate tax rates, closing tax loopholes, and establishing a new infrastructure bond program. The White House estimates that the plan will create approximately 10 million jobs over the next decade. Economic analysts have offered varying assessments of the plan's potential impact. Dr. Amanda Foster, an economist at the National Economic Research Institute, noted that "large-scale infrastructure investment has historically provided significant economic multiplier effects, generating broader economic growth beyond the direct job creation." However, some fiscal policy experts have raised concerns about inflation risks associated with such massive government spending, particularly given current economic conditions and supply chain challenges affecting construction materials.
-                </p>
-
-                <h3>Implementation Timeline and Next Steps</h3>
-
-                <p>
-                    The President outlined an ambitious implementation timeline, with initial projects beginning as early as fall 2024, pending congressional approval. Priority will be given to projects that can begin quickly and those addressing the most critical safety concerns. President Smith announced that he will embark on a nationwide tour over the next month to build public support for the infrastructure plan, visiting key states where major projects would be implemented. The tour will include stops in Pennsylvania, Michigan, Texas, and California. "This isn't a Democratic plan or a Republican plan—it's an American plan," President Smith emphasized during his Rose Garden remarks. "Every state, every community will benefit from these investments. This is about building an America that works for everyone."
-                </p>
-
-                <h3>Labor and Industry Response</h3>
-
-                <p>
-                    Major labor unions have enthusiastically endorsed the infrastructure plan. AFL-CIO President Michael Thompson called it "the most significant job creation initiative in a generation," while the International Brotherhood of Electrical Workers praised the plan's focus on clean energy jobs. The construction industry has also welcomed the proposal, though some companies have expressed concerns about potential labor shortages and the availability of construction materials for such a massive undertaking. "We're ready to get to work building America's future," said Sarah Johnson, president of the Associated General Contractors of America. "However, we'll need to ensure we have the skilled workforce and materials supply chains to support projects of this magnitude." The American Society of Civil Engineers, which has long advocated for increased infrastructure investment, gave the plan their strong endorsement, noting that it addresses many of the critical deficiencies they have identified in their annual infrastructure report card.
-                </p>
-            </div>
-        </main>
-
-        <!-- Comments Section -->
-        <section class="comments-section">
-            <h2 class="comments-header">Comments <span id="comment-count">0</span></h2>
-            
-            <div class="comment-form">
-                <div class="form-group">
-                    <label for="author">Name</label>
-                    <input type="text" id="author" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label for="comment-text">Comment</label>
-                    <textarea id="comment-text" placeholder="Write your comment..."></textarea>
-                </div>
-                <button class="submit-btn" onclick="addComment()">Post Comment</button>
-            </div>
-
-            <div class="comments-list" id="comments-list">
-                <div class="no-comments" id="no-comments">
-                    No comments yet. Be the first to comment!
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Global Network</h3>
+                    <p>Connect with a worldwide community of alumni, industry partners, and research institutions for endless opportunities.</p>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">TechUniversity by the Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">15,000+</span>
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Faculty Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Programs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about">About Us</a>
+                <a href="/programs">Programs</a>
+                <a href="/members">members</a>
+                <a href="/contact">Contact</a>
+            </div>
+            <p>&copy; 2025 TechUniversity. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        let comments = [];
-        let commentIdCounter = 1;
-
-        function addComment() {
-            const author = document.getElementById('author').value.trim();
-            const commentText = document.getElementById('comment-text').value.trim();
-
-            if (!author || !commentText) {
-                alert('Please enter both name and comment.');
-                return;
-            }
-
-            const comment = {
-                id: commentIdCounter++,
-                author: author,
-                text: commentText,
-                date: new Date().toLocaleString('en-US')
+        // Add smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate feature cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             };
 
-            comments.push(comment);
-            renderComments();
-            
-            // Clear input fields
-            document.getElementById('author').value = '';
-            document.getElementById('comment-text').value = '';
-        }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
 
-        function deleteComment(commentId) {
-            if (confirm('Are you sure you want to delete this comment?')) {
-                comments = comments.filter(comment => comment.id !== commentId);
-                renderComments();
-            }
-        }
-
-        function renderComments() {
-            const commentsList = document.getElementById('comments-list');
-            const noCommentsMsg = document.getElementById('no-comments');
-            const commentCount = document.getElementById('comment-count');
-
-            commentCount.textContent = comments.length;
-
-            if (comments.length === 0) {
-                commentsList.innerHTML = '<div class="no-comments" id="no-comments">No comments yet. Be the first to comment!</div>';
-                return;
-            }
-
-            const commentsHTML = comments.map(comment => `
-                <div class="comment">
-                    <div class="comment-header">
-                        <span class="comment-author">${escapeHtml(comment.author)}</span>
-                        <span class="comment-date">${comment.date}</span>
-                    </div>
-                    <div class="comment-content">${escapeHtml(comment.text)}</div>
-                    <button class="delete-btn" onclick="deleteComment(${comment.id})">Delete</button>
-                </div>
-            `).join('');
-
-            commentsList.innerHTML = commentsHTML;
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // Submit comment with Ctrl+Enter
-        document.getElementById('comment-text').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && e.ctrlKey) {
-                addComment();
-            }
-        });
-
-        // Share button functionality
-        document.querySelectorAll('.share-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const title = encodeURIComponent(document.title);
-                const url = encodeURIComponent(window.location.href);
-                
-                alert('Share functionality can be implemented with actual social media APIs.');
+            // Apply animation to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+                observer.observe(card);
             });
+
+            // Counter animation for stats
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const animateCounters = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = target.textContent.replace(/[^0-9]/g, '');
+                        let current = 0;
+                        const increment = finalValue / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= finalValue) {
+                                current = finalValue;
+                                clearInterval(timer);
+                            }
+                            target.textContent = Math.floor(current) + (target.textContent.includes('+') ? '+' : '');
+                        }, 30);
+                    }
+                });
+            };
+
+            const counterObserver = new IntersectionObserver(animateCounters, observerOptions);
+            statNumbers.forEach(stat => counterObserver.observe(stat));
         });
     </script>
 </body>
